@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Pop — multi-panel poster maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls">
+    <h1>Cover Pop</h1>
+    <p class="tag">Turn a photo into a multi-panel poster. Fully offline — photos never leave your machine.</p>
+
+    <div class="duo">
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="chips" id="layouts"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Colour grade</legend>
+      <div class="chips" id="grades"></div>
+    </fieldset>
+    </div>
+
+    <div class="duo">
+    <label>Caption
+      <input id="caption" type="text" maxlength="40" value="Sunset Heist">
+    </label>
+    <label>Sub-caption
+      <input id="subcaption" type="text" maxlength="60" value="A summer of trouble">
+    </label>
+    </div>
+
+    <fieldset>
+      <legend>Panel photo — click a panel, drag to move</legend>
+      <div class="chips" id="panels"></div>
+      <label class="file">Upload a photo <input id="upload" type="file" accept="image/*"></label>
+      <div class="chips">
+        <button id="sample-pier" type="button" class="chip">Sample: pier</button>
+        <button id="sample-boulevard" type="button" class="chip">Sample: boulevard</button>
+      </div>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1"> <span id="zoom-value">100%</span></label>
+      <div class="chips">
+        <button id="fill-all" type="button" class="chip">One photo in every panel</button>
+        <button id="reset-panel" type="button" class="chip">Reset position</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Export size</legend>
+      <div class="chips" id="sizes"></div>
+      <button id="export" type="button" class="primary">Export PNG</button>
+    </fieldset>
+
+    <p id="status" role="status"></p>
+  </section>
+  <section class="stage">
+    <canvas id="cover" width="1080" height="1080" aria-label="The poster preview"></canvas>
+    <p class="hint">Click a panel to pick it · drag the photo inside it · pick a grade and export.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
